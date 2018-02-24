@@ -3,16 +3,19 @@ import { connect } from 'react-redux';
 import './App.css';
 
 class App extends Component {
-    constructor() {
-        super();
-        this.sendData = this.sendData.bind(this);
+  constructor() {
+    super();
+    this.sendData = this.sendData.bind(this);
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.abcd !== '') {
+      alert(nextProps.abcd);
     }
-    componentWillReceiveProps(nextProps) {
-        alert(nextProps.abcd);
-    }
-    sendData() {
-        this.props.dispatch({ type: "TESTING", payload: "abcd"})
-    }
+  }
+
+  sendData() {
+    this.props.dispatch({ type: 'TESTING', payload: 'abcd' });
+  }
   render() {
     return (
       <div className="App">
@@ -29,9 +32,9 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-    return {
-        abcd: state.testReducer.abcd
-    }
+  return {
+    abcd: state.testReducer.abcd,
+  };
 }
 
 export default connect(mapStateToProps)(App);

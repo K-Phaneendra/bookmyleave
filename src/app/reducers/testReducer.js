@@ -1,26 +1,22 @@
 const initialState = {
-    abcd: ""
-}
+  abcd: '',
+};
 
 export default function testReducer(state = initialState, action) {
-    var st = state;
-    switch(action.type){
-        case 'ErrorType.ERROR_LOG': {
-            st = {
-                ...state,
-                message: action.message
-            };
-            break;
-        }
-        case "TESTING": {
-            console.log(action.payload);
-            st = { ...state, abcd: action.payload }
-            break;
-        }
-        default: {
-            return st;
-        }
+  let st = state;
+  switch (action.type) {
+    case 'ErrorType.ERROR_LOG': {
+      st = { ...state, message: action.message };
+      break;
     }
-    console.log('testReducer-AFTER:: '+action.type, st);
-    return st;
+    case 'TESTING': {
+      st = { ...state, abcd: action.payload };
+      break;
+    }
+    default: {
+      return st;
+    }
+  }
+  console.log(`AFTER::${action.type},${JSON.stringify(st)}`);
+  return st;
 }
