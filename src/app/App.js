@@ -1,31 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
+import Registration from './components/registration/registration';
+import Home from './components/homePage/home';
 
 class App extends Component {
   constructor() {
     super();
-    this.sendData = this.sendData.bind(this);
+    this.displayApp = this.displayApp.bind(this);
   }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.abcd !== '') {
-      alert(nextProps.abcd);
+  componentWillReceiveProps() {
+  }
+  displayApp() {
+    if (this.props.loggedinUser === null) {
+      return (
+        <div className="App">
+          <Registration />
+        </div>
+      );
+    } else if (this.props.loggedinUser !== null) {
+      return (
+        <div className="App">
+          <Home />
+        </div>
+      );
     }
-  }
-
-  sendData() {
-    this.props.dispatch({ type: 'TESTING', payload: 'abcd' });
+    return null;
   }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <input type="button" onClick={() => this.sendData()} />
+      <div>
+        {this.displayApp()}
       </div>
     );
   }
@@ -33,7 +38,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    abcd: state.testReducer.abcd,
+    loggedinUser: state.loginReducer.loggedinUser,
   };
 }
 

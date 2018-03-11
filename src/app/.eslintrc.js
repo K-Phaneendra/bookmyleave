@@ -6,7 +6,22 @@ module.exports = {
   rules:{
     "linebreak-style": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react/prefer-stateless-function": [0, { "ignorePureComponents": true }],
+    "class-methods-use-this": [1, { "exceptMethods": ["componentDidMount"] }],
+    "prefer-destructuring": ["error", {
+      "VariableDeclarator": {
+        "array": false,
+        "object": false
+      },
+      "AssignmentExpression": {
+        "array": false,
+        "object": false
+      }
+    }, {
+      "enforceForRenamedProperties": false
+    }],
+    "import/prefer-default-export": "off"
   },
   plugins: [
     "react"
