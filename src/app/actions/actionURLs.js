@@ -5,13 +5,16 @@ function getUrl(pattern) {
 }
 
 export const EmployeesUrls = {
-  // EMPLOYEE_API: getUrl('employees'),
+  EMPLOYEE_API: getUrl('employees'),
   EMPLOYEE_REGISTERED: getUrl('employees/registeredAdmin'),
   CHECK_LOGIN: getUrl('employees/login'),
   FETCH_EMPLOYEES: getUrl('employees/companyid'),
 };
 
 export const RegistrationURLs = {
-  // COMPANIES_API: getUrl('companies'),
   CHECK_REGISTERED_COMP: getUrl('companies/registeredCompany'),
+};
+
+export const CompaniesUrls = {
+  COMPANIES_API: getUrl('companies'),
 };

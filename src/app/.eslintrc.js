@@ -21,7 +21,10 @@ module.exports = {
     }, {
       "enforceForRenamedProperties": false
     }],
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "max-len": [1, 80, 2, {
+      "ignoreTemplateLiterals": true
+    }],
   },
   plugins: [
     "react"

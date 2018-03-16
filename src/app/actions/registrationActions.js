@@ -39,11 +39,10 @@ export function loginCredentials(loginCred) {
     axios
       .post(EmployeesUrls.CHECK_LOGIN, JSON.stringify(loginCred), Configs.CONFIG)
       .then((res) => {
-        console.log(res);
         if (res.data.length === 0) {
           alert('Sorry, no details found, You need to Register First');
         } else {
-          alert('Login Successful');
+          // alert('Login Successful');
           dispatch({ type: LoginActions.LOGIN_SUCCESSFUL, payload: res.data });
         }
       })

@@ -1,7 +1,7 @@
-import { EmployeeActions } from '../actions/actionTypes';
+import { CompanyActions } from '../actions/actionTypes';
 
 const initialState = {
-  fetchedEmployees: null,
+  fetchedCompany: null,
 };
 
 export default function homeReducer(state = initialState, action) {
@@ -11,8 +11,8 @@ export default function homeReducer(state = initialState, action) {
       st = { ...state, message: action.message };
       break;
     }
-    case EmployeeActions.FETCH_EPLOYEES: {
-      st = { ...state, fetchedEmployees: action.payload };
+    case CompanyActions.FETCH_COMPANY: {
+      st = { ...state, fetchedCompany: action.payload };
       break;
     }
     default: {
