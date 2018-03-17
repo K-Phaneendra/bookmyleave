@@ -6,7 +6,13 @@ class Registration extends Component {
   constructor() {
     super();
     this.submitRegistration = this.submitRegistration.bind(this);
+    this.checkPass = this.checkPass.bind(this);
     this.submitlogin = this.submitlogin.bind(this);
+  }
+  checkPass(event) {
+    if (event.keyCode === 13) {
+      this.submitlogin();
+    }
   }
   submitlogin() {
     const selectedLoginform = document.forms.loginform;
@@ -58,7 +64,7 @@ class Registration extends Component {
               <input type="text" id="loginemail" name="loginemail" />
             </label><br />
             <label htmlFor="loginpass">Password
-              <input type="password" id="loginpass" name="loginpass" />
+              <input type="password" id="loginpass" name="loginpass" onKeyDown={this.checkPass} />
             </label><br />
             <div>
               <input type="button" value="Login" onClick={this.submitlogin} />

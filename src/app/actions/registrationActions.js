@@ -41,6 +41,8 @@ export function loginCredentials(loginCred) {
       .then((res) => {
         if (res.data.length === 0) {
           alert('Sorry, no details found, You need to Register First');
+        } else if (res.data.login === 'INVALID_PASS') {
+          alert('Password Mismatched, try again');
         } else {
           // alert('Login Successful');
           dispatch({ type: LoginActions.LOGIN_SUCCESSFUL, payload: res.data });
