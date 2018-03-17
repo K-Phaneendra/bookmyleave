@@ -15,6 +15,7 @@ class Home extends Component {
       columns: this.getEmpColumns(),
       rows: [],
     };
+    this.getManager = this.getManager.bind(this);
     this.addEmpPopup = this.addEmpPopup.bind(this);
     this.editempPopup = this.editempPopup.bind(this);
     this.delemp = this.delemp.bind(this);
@@ -35,6 +36,7 @@ class Home extends Component {
         displayedRowsObj.name = empdata.name;
         displayedRowsObj.code = empdata.code;
         displayedRowsObj.email = empdata.email;
+        displayedRowsObj.resourceManager = this.getManager(empdata.resourceManager, nextProps.fetchedEmployees);
         displayedRowsObj.act =
         (
           <div>
@@ -48,11 +50,23 @@ class Home extends Component {
     }
     this.setState({ rows: displayedRows });
   }
+  getManager(managerid, data) {
+    if (managerid !== undefined) {
+      return data.map((empdata) => {
+        if (managerid === empdata.id) {
+          return empdata.name;
+        }
+        return null;
+      });
+    }
+    return null;
+  }
   getEmpColumns() {
     const empColumns = [
       { accessor: 'name', Header: 'Employee Name' },
       { accessor: 'code', Header: 'Employee Code' },
       { accessor: 'email', Header: 'Employee E-Mail' },
+      { accessor: 'resourceManager', Header: 'Resource Manager' },
       { accessor: 'act', Header: 'Actions' },
     ];
     return empColumns;

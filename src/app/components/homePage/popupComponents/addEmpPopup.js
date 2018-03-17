@@ -1,16 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 import { openAddEmp, addNewEmp } from '../../../actions/empCrudActions';
 
 class AddEmpPopup extends Component {
   constructor() {
     super();
+    this.state = {
+      managerOptions: null,
+      selectedOption: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
     this.onCloseModal = this.onCloseModal.bind(this);
     this.submitAddEmp = this.submitAddEmp.bind(this);
   }
+  componentWillMount() {
+    const options = [];
+    let optionObj = {};
+    this.props.fetchedEmployees.map((empdata) => {
+      optionObj = {};
+      optionObj.value = empdata.id;
+      optionObj.label = empdata.name;
+      options.push(optionObj);
+      return null;
+    });
+    this.setState({ managerOptions: options });
+  }
   onCloseModal() {
     this.props.dispatch(openAddEmp(false));
+  }
+  handleChange(selectedOption) {
+    this.setState({ selectedOption });
   }
   submitAddEmp() {
     const selectedAddEmpform = document.forms.addEmpform;
@@ -18,7 +40,8 @@ class AddEmpPopup extends Component {
     const empcode = selectedAddEmpform.empcode.value;
     const empemail = selectedAddEmpform.empemail.value;
     const emppass = selectedAddEmpform.emppass.value;
-    if (empname === '' || empcode === '' || empemail === '' || emppass === '') {
+    const empManager = this.state.selectedOption.value;
+    if (empname === '' || empcode === '' || empemail === '' || emppass === '' || empManager === '') {
       alert('all fields are mandatory');
     } else {
       const addEmp = {
@@ -26,6 +49,7 @@ class AddEmpPopup extends Component {
         code: empcode,
         email: empemail,
         password: emppass,
+        resourceManager: empManager,
         companyid: this.props.loggedinUser.companyid,
       };
       this.props.dispatch(addNewEmp(addEmp));
@@ -33,6 +57,8 @@ class AddEmpPopup extends Component {
     }
   }
   render() {
+    const { selectedOption } = this.state;
+    const value = selectedOption && selectedOption.value;
     return (
       <Modal open={this.props.addEmpPopup} onClose={this.onCloseModal}>
         <div>
@@ -50,6 +76,17 @@ class AddEmpPopup extends Component {
               <input type="password" id="emppass" name="emppass" />
             </label><br />
             <div>
+              <label htmlFor="empManagername">Employee Manager
+              <Select
+                name="resource-manager-name"
+                id="empManagername"
+                value={value}
+                onChange={this.handleChange}
+                options={this.state.managerOptions}
+              />
+              </label>
+            </div>
+            <div>
               <input type="button" value="Add" onClick={this.submitAddEmp} />
               <input type="button" value="Cancel" onClick={this.onCloseModal} />
             </div>
@@ -64,6 +101,7 @@ function mapStateToProps(state) {
   return {
     addEmpPopup: state.empCrudReducer.addEmpPopup,
     loggedinUser: state.loginReducer.loggedinUser,
+    fetchedEmployees: state.empCrudReducer.fetchedEmployees,
   };
 }
 

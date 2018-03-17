@@ -37,7 +37,7 @@ export function editEmp(editemp) {
   return function (dispatch) {
     const updateURL = `${EmployeesUrls.EMPLOYEE_API}/${editemp.id}`;
     axios
-      .put(updateURL, { name: editemp.name, email: editemp.email }, Configs.CONFIG)
+      .put(updateURL, { name: editemp.name, email: editemp.email, resourceManager: editemp.resourceManager }, Configs.CONFIG)
       .then((res) => {
         dispatch({ type: EmployeeActions.UPDATE_EMP, payload: res.data });
       })
