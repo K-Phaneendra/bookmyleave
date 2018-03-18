@@ -2,6 +2,7 @@ import { LoginActions } from '../actions/actionTypes';
 
 const initialState = {
   loggedinUser: null,
+  loggedinUserType: '',
 };
 
 export default function loginReducer(state = initialState, action) {
@@ -17,7 +18,7 @@ export default function loginReducer(state = initialState, action) {
         loggedinUserClone = data;
         return null;
       });
-      st = { ...state, loggedinUser: loggedinUserClone };
+      st = { ...state, loggedinUser: loggedinUserClone, loggedinUserType: action.logintype };
       break;
     }
     default: {

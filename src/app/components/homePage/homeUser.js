@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './App.css';
-import Routes from './components/routes/routes';
 
-class App extends Component {
+class HomeUser extends Component {
   render() {
     return (
       <div>
-        <Routes />
+        this is user home
       </div>
     );
   }
@@ -17,4 +15,4 @@ function mapStateToProps() {
   return null;
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(HomeUser);
