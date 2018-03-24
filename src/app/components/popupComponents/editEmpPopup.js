@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-import { openEditEmp, editEmp } from '../../../actions/empCrudActions';
+import { openEditEmp, editEmp } from '../../actions/empCrudActions';
 
 class EditEmpPopup extends Component {
   constructor() {

@@ -4,8 +4,8 @@ import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import { fetchCompany, fetchEmployees } from '../../actions/homeActions';
 import { openAddEmp, openEditEmp, deleteEmp } from '../../actions/empCrudActions';
-import AddEmpPopup from './popupComponents/addEmpPopup';
-import EditEmpPopup from './popupComponents/editEmpPopup';
+import AddEmpPopup from '../popupComponents/addEmpPopup';
+import EditEmpPopup from '../popupComponents/editEmpPopup';
 
 class Home extends Component {
   constructor() {

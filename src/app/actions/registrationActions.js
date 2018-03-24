@@ -45,7 +45,6 @@ export function loginCredentials(loginCred) {
           alert('Password Mismatched, try again');
         } else {
           // alert('Login Successful');
-          console.log(res, 'line47');
           const code = res.data[0].code.split('_');
           if (code[0] === 'admin') {
             window.location.href = '/#/admin';

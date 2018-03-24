@@ -53,8 +53,7 @@ export function deleteEmp(emp) {
     const deleteURL = `${EmployeesUrls.EMPLOYEE_API}/${emp.id}`;
     axios
       .delete(deleteURL, Configs.CONFIG)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         dispatch({ type: EmployeeActions.DEL_EMP, payload: emp });
       })
       .catch((err) => {

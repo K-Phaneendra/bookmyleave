@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter, Route } from 'react-router-dom';
 import Registration from '../registration/registration';
-import Home from '../homePage/home';
-import HomeUser from '../homePage/homeUser';
+import Home from '../home_admin/home';
+import HomeUser from '../home_user/homeUser';
 
 class Routes extends Component {
   constructor(props) {

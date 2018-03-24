@@ -18,3 +18,8 @@ export const EmployeeActions = {
   UPDATE_EMP: 'UPDATE_EMP',
   DEL_EMP: 'DEL_EMP',
 };
+
+export const UserActions = {
+  PICKED_DATE: 'PICKED_DATE',
+  LEAVE_REQUESTED: 'LEAVE_REQUESTED',
+};

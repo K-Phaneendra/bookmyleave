@@ -18,3 +18,7 @@ export const RegistrationURLs = {
 export const CompaniesUrls = {
   COMPANIES_API: getUrl('companies'),
 };
+
+export const LeaveRequestsURLs = {
+  LEAVEREQUESTS_API: getUrl('leaverequests'),
+};
