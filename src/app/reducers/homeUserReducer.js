@@ -4,6 +4,7 @@ const initialState = {
   pickedDate: null,
   leaveBookedpopup: null,
   leaveBookedData: null,
+  leaveReportofUser: null,
 };
 
 export default function homeUserReducer(state = initialState, action) {
@@ -18,7 +19,28 @@ export default function homeUserReducer(state = initialState, action) {
       break;
     }
     case UserActions.LEAVE_REQUESTED: {
-      st = { ...state, leaveBookedpopup: action.toggleMsgPopup, leaveBookedData: action.payload };
+      console.log(action.payload, 'line22');
+      if (action.payload !== null) {
+        const leaveReport = [];
+        st.leaveReportofUser.map((data) => {
+          leaveReport.push(data);
+          return null;
+        });
+        leaveReport.push(action.payload.leavedata);
+        console.log(leaveReport, 'line29');
+        st = {
+          ...state,
+          leaveBookedpopup: action.toggleMsgPopup,
+          leaveBookedData: action.payload,
+          leaveReportofUser: leaveReport,
+        };
+      } else {
+        st = { ...state, leaveBookedpopup: action.toggleMsgPopup, leaveBookedData: action.payload };
+      }
+      break;
+    }
+    case UserActions.LEAVEREPORT_OFUSER: {
+      st = { ...state, leaveReportofUser: action.payload };
       break;
     }
     default: {

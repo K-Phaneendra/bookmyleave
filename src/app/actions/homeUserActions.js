@@ -27,3 +27,17 @@ export function leaveRequested(requested, bool) {
     }
   };
 }
+
+export function fetchLeaveReportfromDB(empid) {
+  return function (dispatch) {
+    const url = `${LeaveRequestsURLs.GETLEAVEDATA_BYFROMID}/${empid}`;
+    axios
+      .get(url, Configs.CONFIG)
+      .then((res) => {
+        dispatch({ type: UserActions.LEAVEREPORT_OFUSER, payload: res.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+}

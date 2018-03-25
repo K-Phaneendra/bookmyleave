@@ -4,6 +4,7 @@ import InfiniteCalendar from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css';
 import { userPickedDate } from '../../actions/homeUserActions';
 import BookLeaveForm from './bookLeaveForm';
+import LeavesReport from './leavesReport';
 
 class HomeUser extends Component {
   constructor() {
@@ -39,6 +40,9 @@ class HomeUser extends Component {
         </div>
         <div>
           <BookLeaveForm />
+        </div>
+        <div>
+          <LeavesReport />
         </div>
       </div>
     );

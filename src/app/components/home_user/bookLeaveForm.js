@@ -25,7 +25,7 @@ class BookLeaveForm extends Component {
       to: this.props.loggedinUser.resourceManager,
       leaveDate: new Date(this.state.pickedDate),
       leaveReason,
-      status: 'UNSEEN',
+      status: 'Requested',
       companyid: this.props.loggedinUser.companyid,
     };
     this.props.dispatch(leaveRequested(leaveObj, true));

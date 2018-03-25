@@ -22,4 +22,5 @@ export const EmployeeActions = {
 export const UserActions = {
   PICKED_DATE: 'PICKED_DATE',
   LEAVE_REQUESTED: 'LEAVE_REQUESTED',
+  LEAVEREPORT_OFUSER: 'LEAVEREPORT_OFUSER',
 };
