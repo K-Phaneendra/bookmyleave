@@ -19,7 +19,6 @@ export default function homeUserReducer(state = initialState, action) {
       break;
     }
     case UserActions.LEAVE_REQUESTED: {
-      console.log(action.payload, 'line22');
       if (action.payload !== null) {
         const leaveReport = [];
         st.leaveReportofUser.map((data) => {
@@ -27,7 +26,6 @@ export default function homeUserReducer(state = initialState, action) {
           return null;
         });
         leaveReport.push(action.payload.leavedata);
-        console.log(leaveReport, 'line29');
         st = {
           ...state,
           leaveBookedpopup: action.toggleMsgPopup,

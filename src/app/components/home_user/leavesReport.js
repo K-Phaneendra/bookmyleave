@@ -24,7 +24,6 @@ class LeavesReport extends Component {
   componentWillReceiveProps(nextProps) {
     const reportArr = [];
     let reportObj = {};
-    console.log(nextProps.leaveReportofUser, 'line27');
     if (nextProps.leaveReportofUser !== null && nextProps.fetchedEmployees !== null) {
       nextProps.leaveReportofUser.map((data, i) => {
         reportObj = {};
