@@ -22,4 +22,5 @@ export const CompaniesUrls = {
 export const LeaveRequestsURLs = {
   LEAVEREQUESTS_API: getUrl('leaverequests'),
   GETLEAVEDATA_BYFROMID: getUrl('leaverequests/byfromid'),
+  GETLEAVEDATA_BYTOID: getUrl('leaverequests/bytoid'),
 };

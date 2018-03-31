@@ -53,7 +53,7 @@ class LeavesReport extends Component {
     if (empDataArr !== null) {
       return empDataArr.map((empData) => {
         if (obtainedid === empData.id) {
-          return empData.name;
+          return `${empData.name}: ${empData.code}`;
         }
         return null;
       });

@@ -1,7 +1,8 @@
-import { CompanyActions } from '../actions/actionTypes';
+import { CompanyActions, LeaveReportAdmin } from '../actions/actionTypes';
 
 const initialState = {
   fetchedCompany: null,
+  fetchedLeaveReport_Admin: null,
 };
 
 export default function homeReducer(state = initialState, action) {
@@ -13,6 +14,10 @@ export default function homeReducer(state = initialState, action) {
     }
     case CompanyActions.FETCH_COMPANY: {
       st = { ...state, fetchedCompany: action.payload };
+      break;
+    }
+    case LeaveReportAdmin.FETCHED_ADMINLEAVEREPORT: {
+      st = { ...state, fetchedLeaveReport_Admin: action.payload };
       break;
     }
     default: {

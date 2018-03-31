@@ -6,6 +6,7 @@ import { fetchCompany, fetchEmployees } from '../../actions/homeActions';
 import { openAddEmp, openEditEmp, deleteEmp } from '../../actions/empCrudActions';
 import AddEmpPopup from '../popupComponents/addEmpPopup';
 import EditEmpPopup from '../popupComponents/editEmpPopup';
+import LeavesReportAdmin from './leavesReport_admin';
 
 class Home extends Component {
   constructor() {
@@ -88,6 +89,9 @@ class Home extends Component {
         <div>
           <div>
             Welcome to Home Page of <b>{this.state.companyData.name}</b>
+          </div>
+          <div>
+            <LeavesReportAdmin />
           </div>
           <div>
             <div>
