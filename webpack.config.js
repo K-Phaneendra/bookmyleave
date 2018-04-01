@@ -26,6 +26,13 @@ var config = {
 				loader: "style-loader!css-loader"
 			},
 			{
+				test: /\.(jpg|png|svg)$/,
+				loader: 'file-loader',
+				options: {
+					name: '[path][name].[ext]'
+				}
+			},
+			{
 				test: /\.jsx?$/,
 				include: SRC_DIR,
 				exclude: /node_modules/,
