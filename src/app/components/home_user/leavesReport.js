@@ -4,6 +4,7 @@ import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import { fetchLeaveReportfromDB } from '../../actions/homeUserActions';
 import { fetchEmployees } from '../../actions/homeActions';
+import '../home_admin/home_admin.css';
 
 class LeavesReport extends Component {
   constructor() {
@@ -73,12 +74,17 @@ class LeavesReport extends Component {
   render() {
     return (
       <div>
-        <ReactTable
-          data={this.state.rows}
-          columns={this.state.columns}
-          defaultPageSize={10}
-          className="-striped -highlight"
-        />
+        <div className="tableHead_user">
+          Your Leave Report
+        </div>
+        <div>
+          <ReactTable
+            data={this.state.rows}
+            columns={this.state.columns}
+            defaultPageSize={10}
+            className="-striped -highlight"
+          />
+        </div>
       </div>
     );
   }

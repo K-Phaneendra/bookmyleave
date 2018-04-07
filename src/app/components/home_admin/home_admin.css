@@ -64,3 +64,40 @@
   color: #ff0a0a;
   cursor: pointer;
 }
+
+/* user page styles */
+.lftReport_user {
+  float: left;
+  margin-left: 2%;
+  width: 30%;
+  height: 500px;
+  padding: 5px;
+}
+.rhtEmp_user {
+  float: right;
+  margin-right: 2%;
+  width: 60%;
+  height: 500px;
+  padding: 5px;
+}
+.leaveReasontextarea {
+  width: 60%;
+  height: 30px;
+}
+.bookleaveBut {
+  width: 30%;
+  height: 35px;
+  margin-left: 10px;
+  border: none;
+  background-color: rgb(54, 250, 103);
+}
+.bookleaveBut:hover {
+  cursor: pointer;
+  background-color: rgb(77, 250, 54);  
+}
+.tableHead_user {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 1em auto;
+  text-align: center;
+}

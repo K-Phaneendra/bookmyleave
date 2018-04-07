@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { leaveRequested } from '../../actions/homeUserActions';
 import LeaveBookedPopup from '../popupComponents/leaveBookedPopup';
+import '../home_admin/home_admin.css';
 
 class BookLeaveForm extends Component {
   constructor() {
@@ -41,8 +42,8 @@ class BookLeaveForm extends Component {
       return (
         <div>
           <form name="leaveForm">
-            <input type="textarea" placeholder="Write Your Reason" name="leaveReason" />
-            <input type="button" value="Book Leave" onClick={this.leaveBooked} />
+            <input type="textarea" className="leaveReasontextarea" placeholder="Write Your Reason" name="leaveReason" />
+            <input type="button" className="bookleaveBut" value="Book Leave" onClick={this.leaveBooked} />
             <LeaveBookedPopup />
           </form>
         </div>

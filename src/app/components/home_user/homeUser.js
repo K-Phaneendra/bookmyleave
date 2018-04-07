@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import NotificationBar from '../notificationbar/notificationbar';
 import InfiniteCalendar from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css';
+import NotificationBar from '../notificationbar/notificationbar';
 import { userPickedDate } from '../../actions/homeUserActions';
 import BookLeaveForm from './bookLeaveForm';
 import LeavesReport from './leavesReport';
+import '../home_admin/home_admin.css';
 
 class HomeUser extends Component {
   constructor() {
@@ -31,7 +32,10 @@ class HomeUser extends Component {
         <div>
           <NotificationBar />
         </div>
-        <div>
+        <div className="adminHeading">
+          Welcome <b>{this.props.loggedinUser.name}</b>
+        </div>
+        <div className="lftReport_user">
           <InfiniteCalendar
             width={400}
             height={600}
@@ -42,10 +46,10 @@ class HomeUser extends Component {
             onSelect={this.dateselected}
           />
         </div>
-        <div>
-          <BookLeaveForm />
-        </div>
-        <div>
+        <div className="rhtEmp_user">
+          <div className="tableHead">
+            <BookLeaveForm />
+          </div>
           <LeavesReport />
         </div>
       </div>
@@ -53,8 +57,10 @@ class HomeUser extends Component {
   }
 }
 
-function mapStateToProps() {
-  return null;
+function mapStateToProps(state) {
+  return {
+    loggedinUser: state.loginReducer.loggedinUser,
+  };
 }
 
 export default connect(mapStateToProps)(HomeUser);
