@@ -45,12 +45,22 @@ export function loginCredentials(loginCred) {
           alert('Password Mismatched, try again');
         } else {
           // alert('Login Successful');
+          const initialState = {};
+          let loggedinUserClone = {};
+          res.data.map((data) => {
+            loggedinUserClone = data;
+            return null;
+          });
           const code = res.data[0].code.split('_');
+          initialState.loggedinUser = loggedinUserClone;
+          initialState.loggedinUserType = code[0];
           if (code[0] === 'admin') {
-            window.location.href = '/#/admin';
+            localStorage.setItem('BML_user', JSON.stringify(initialState));
+            window.location.replace('/#/admin');
             dispatch({ type: LoginActions.LOGIN_SUCCESSFUL, payload: res.data, logintype: code[0] });
           } else {
-            window.location.href = '/#/user';
+            localStorage.setItem('BML_user', JSON.stringify(initialState));
+            window.location.replace('/#/user');
             dispatch({ type: LoginActions.LOGIN_SUCCESSFUL, payload: res.data, logintype: code[0] });
           }
         }
@@ -58,5 +68,12 @@ export function loginCredentials(loginCred) {
       .catch((err) => {
         console.log(err);
       });
+  };
+}
+
+// logout clicked
+export function userLogoutFunction() {
+  return function (dispatch) {
+    dispatch({ type: LoginActions.LOGOUTCLICKED, data: null });
   };
 }

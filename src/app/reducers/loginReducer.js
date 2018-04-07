@@ -5,7 +5,16 @@ const initialState = {
   loggedinUserType: '',
 };
 
-export default function loginReducer(state = initialState, action) {
+function getInitialState() {
+  const loggedInUserData = localStorage.getItem('BML_user');
+  if (loggedInUserData !== null) {
+    return JSON.parse(loggedInUserData);
+  } else if (loggedInUserData === null) {
+    return initialState;
+  }
+  return null;
+}
+export default function loginReducer(state = getInitialState(), action) {
   let st = state;
   switch (action.type) {
     case 'ErrorType.ERROR_LOG': {
@@ -19,6 +28,10 @@ export default function loginReducer(state = initialState, action) {
         return null;
       });
       st = { ...state, loggedinUser: loggedinUserClone, loggedinUserType: action.logintype };
+      break;
+    }
+    case LoginActions.LOGOUTCLICKED: {
+      st = { ...state, loggedinUser: action.data, loggedinUserType: '' };
       break;
     }
     default: {

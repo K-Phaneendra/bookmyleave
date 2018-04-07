@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import NotificationBar from '../notificationbar/notificationbar';
 import InfiniteCalendar from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css';
 import { userPickedDate } from '../../actions/homeUserActions';
@@ -27,6 +28,9 @@ class HomeUser extends Component {
   render() {
     return (
       <div>
+        <div>
+          <NotificationBar />
+        </div>
         <div>
           <InfiniteCalendar
             width={400}

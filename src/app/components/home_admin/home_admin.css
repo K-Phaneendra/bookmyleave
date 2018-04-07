@@ -1,0 +1,66 @@
+.adminHeading {
+  margin: 1em auto;
+  text-align: center;
+  font-size: 30px;
+}
+.lftReport {
+  float: left;
+  margin-left: 2%;
+  width: 45%;
+  height: 500px;
+  padding: 5px;
+}
+.tableHead {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 1em auto;
+}
+.rhtEmp {
+  float: right;
+  margin-right: 2%;
+  width: 45%;
+  height: 500px;
+  padding: 5px;
+}
+/* leavereport table styles */
+.approveico {
+  float: left;
+  margin-left: 15%;
+}
+.approveico:hover {
+  color: #1993ff;
+  cursor: pointer;
+}
+.rejectico {
+  float: right;
+  margin-right: 25%;
+}
+.rejectico:hover {
+  color: #d32a04;
+  cursor: pointer;
+}
+/* emp crud table styles */
+.addEmpico {
+  float: right;
+  margin-right: 5%;
+}
+.addEmpico:hover {
+  color: #ff7207;
+  cursor: pointer;
+}
+.editEmpico {
+  float: left;
+  margin-left: 15%;
+}
+.editEmpico:hover {
+  color: #1993ff;
+  cursor: pointer;
+}
+.delEmpico {
+  float: right;
+  margin-right: 25%;
+}
+.delEmpico:hover {
+  color: #ff0a0a;
+  cursor: pointer;
+}

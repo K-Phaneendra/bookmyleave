@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
+import './home_admin.css';
 import { getleaveReportAdmin, leavesStatusChange } from '../../actions/homeActions';
 
 class LeavesReportAdmin extends Component {
@@ -35,8 +36,14 @@ class LeavesReportAdmin extends Component {
       tableObj.act =
       (
         <div>
-          <input type="button" value="Approve" onClick={() => this.approveLeave(data)} />
-          <input type="button" value="Reject" onClick={() => this.rejectLeave(data)} />
+          {/* <input type="button" value="Approve" onClick={() => this.approveLeave(data)} /> */}
+          <a className="approveico">
+            <i className="fa fa-check-circle" aria-hidden="true" title="Approve" onClick={() => this.approveLeave(data)} />
+          </a>
+          {/* <input type="button" value="Reject" onClick={() => this.rejectLeave(data)} /> */}
+          <a className="rejectico">
+            <i className="fa fa-times-circle" aria-hidden="true" title="Reject" onClick={() => this.rejectLeave(data)} />
+          </a>
         </div>
       );
       tableData.push(tableObj);

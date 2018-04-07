@@ -4,6 +4,7 @@ export const ErrorType = {
 
 export const LoginActions = {
   LOGIN_SUCCESSFUL: 'LOGIN_SUCCESSFUL',
+  LOGOUTCLICKED: 'LOGOUTCLICKED',
 };
 
 export const CompanyActions = {

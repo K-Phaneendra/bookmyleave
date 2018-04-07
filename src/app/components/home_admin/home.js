@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
+import './home_admin.css';
+import NotificationBar from '../notificationbar/notificationbar';
 import { fetchCompany, fetchEmployees } from '../../actions/homeActions';
 import { openAddEmp, openEditEmp, deleteEmp } from '../../actions/empCrudActions';
 import AddEmpPopup from '../popupComponents/addEmpPopup';
@@ -41,8 +43,14 @@ class Home extends Component {
         displayedRowsObj.act =
         (
           <div>
-            <input type="button" value="Edit" onClick={() => this.editempPopup(empdata)} />
-            <input type="button" value="Delete" onClick={() => this.delemp(empdata)} />
+            {/* <input type="button" value="Edit" onClick={() => this.editempPopup(empdata)} /> */}
+            <a className="editEmpico">
+              <i className="ion-edit" aria-hidden="true" title="Edit" onClick={() => this.editempPopup(empdata)} />
+            </a>
+            {/* <input type="button" value="Delete" onClick={() => this.delemp(empdata)} /> */}
+            <a className="delEmpico">
+              <i className="fa fa-minus-circle" aria-hidden="true" title="Delete" onClick={() => this.delemp(empdata)} />
+            </a>
           </div>
         );
         displayedRows.push(displayedRowsObj);
@@ -88,14 +96,24 @@ class Home extends Component {
       return (
         <div>
           <div>
+            <NotificationBar />
+          </div>
+          <div className="adminHeading">
             Welcome to Home Page of <b>{this.state.companyData.name}</b>
           </div>
-          <div>
+          <div className="lftReport">
+            <div className="tableHead">
+              Manage Leave Requests
+            </div>
             <LeavesReportAdmin />
           </div>
-          <div>
-            <div>
-              <input type="button" value="Add New Employee" onClick={this.addEmpPopup} />
+          <div className="rhtEmp">
+            <div className="tableHead">
+              Manage Employees
+              {/* <input type="button" value="Add New Employee" onClick={this.addEmpPopup} /> */}
+              <a className="addEmpico">
+                <i className="fa fa-plus-circle" aria-hidden="true" title="Add New Employee" onClick={this.addEmpPopup} />
+              </a>
               <AddEmpPopup />
               <EditEmpPopup />
             </div>

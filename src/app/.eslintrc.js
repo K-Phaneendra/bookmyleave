@@ -25,6 +25,8 @@ module.exports = {
     "max-len": [1, 80, 2, {
       "ignoreTemplateLiterals": true
     }],
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/href-no-hash": "off"
   },
   plugins: [
     "react"
