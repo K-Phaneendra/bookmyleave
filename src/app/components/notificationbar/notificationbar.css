@@ -1,0 +1,35 @@
+.notificationbar {
+  background-color: rgb(64, 74, 102);
+  height: 45px;
+  padding: 20px;
+}
+.logo {
+  height: 45px;
+}
+.logodiv {
+  height: 45px;
+  width: 4%;
+  float: left;
+}
+.notificationtitleDiv {
+  float: left;
+}
+.notificationtitle {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.notificationtitle:hover {
+  cursor: pointer;
+}
+.optionsDiv {
+  float: right;
+  margin-right: 15px;
+}
+.optionsDiv:hover {
+  cursor: pointer;
+}
+.logoutOption {
+  color: white;
+}
