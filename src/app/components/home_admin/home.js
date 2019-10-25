@@ -44,12 +44,12 @@ class Home extends Component {
         (
           <div>
             {/* <input type="button" value="Edit" onClick={() => this.editempPopup(empdata)} /> */}
-            <a className="editEmpico">
-              <i className="ion-edit" aria-hidden="true" title="Edit" onClick={() => this.editempPopup(empdata)} />
+            <a className="editEmpico" onClick={() => this.editempPopup(empdata)}>
+              <i className="ion-edit" aria-hidden="true" title="Edit" />
             </a>
             {/* <input type="button" value="Delete" onClick={() => this.delemp(empdata)} /> */}
-            <a className="delEmpico">
-              <i className="fa fa-minus-circle" aria-hidden="true" title="Delete" onClick={() => this.delemp(empdata)} />
+            <a className="delEmpico" onClick={() => this.delemp(empdata)}>
+              <i className="fa fa-minus-circle" aria-hidden="true" title="Delete" />
             </a>
           </div>
         );
@@ -111,8 +111,8 @@ class Home extends Component {
             <div className="tableHead">
               Manage Employees
               {/* <input type="button" value="Add New Employee" onClick={this.addEmpPopup} /> */}
-              <a className="addEmpico">
-                <i className="fa fa-plus-circle" aria-hidden="true" title="Add New Employee" onClick={this.addEmpPopup} />
+              <a className="addEmpico" onClick={this.addEmpPopup}>
+                <i className="fa fa-plus-circle" aria-hidden="true" title="Add New Employee" />
               </a>
               <AddEmpPopup />
               <EditEmpPopup />

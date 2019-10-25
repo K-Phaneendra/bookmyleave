@@ -3,13 +3,29 @@ import { connect } from 'react-redux';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import './home_admin.css';
-import { getleaveReportAdmin, leavesStatusChange } from '../../actions/homeActions';
+import {
+  getleaveReportAdmin,
+  leavesStatusChange,
+} from '../../actions/homeActions';
 
 class LeavesReportAdmin extends Component {
   constructor() {
     super();
     this.state = {
-      months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      months: [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
+      ],
       columns: this.getColumns(),
       rows: [],
     };
@@ -33,16 +49,23 @@ class LeavesReportAdmin extends Component {
       tableObj.leaveReason = data.leaveReason;
       tableObj.from = this.getFromName(data.from, nextProps.fetchedEmployees);
       tableObj.status = data.status;
-      tableObj.act =
-      (
+      tableObj.act = (
         <div>
           {/* <input type="button" value="Approve" onClick={() => this.approveLeave(data)} /> */}
-          <a className="approveico">
-            <i className="fa fa-check-circle" aria-hidden="true" title="Approve" onClick={() => this.approveLeave(data)} />
+          <a className="approveico" onClick={() => this.approveLeave(data)}>
+            <i
+              className="fa fa-check-circle"
+              aria-hidden="true"
+              title="Approve"
+            />
           </a>
           {/* <input type="button" value="Reject" onClick={() => this.rejectLeave(data)} /> */}
-          <a className="rejectico">
-            <i className="fa fa-times-circle" aria-hidden="true" title="Reject" onClick={() => this.rejectLeave(data)} />
+          <a className="rejectico" onClick={() => this.rejectLeave(data)}>
+            <i
+              className="fa fa-times-circle"
+              aria-hidden="true"
+              title="Reject"
+            />
           </a>
         </div>
       );
